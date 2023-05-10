@@ -1,0 +1,11 @@
+SELECT m.movie_title, AVG(r.rating) as avg_rating
+FROM movies m
+INNER JOIN ratings r ON m.movie_id = r.movie_id
+WHERE m.movie_id NOT IN (
+  SELECT movie_id
+  FROM ratings
+  WHERE user_id = 'user_id'
+)
+GROUP BY m.movie_id
+ORDER BY avg_rating DESC
+LIMIT 10;

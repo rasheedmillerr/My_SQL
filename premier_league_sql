@@ -1,0 +1,5 @@
+SELECT player_name, team_name, goals, assists, yellow_cards, red_cards
+FROM player_stats
+WHERE league_name = 'Premier League'
+  AND season = '2022-2023'
+ORDER BY goals DESC, assists DESC;
